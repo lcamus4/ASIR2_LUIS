@@ -1,14 +1,10 @@
 <?php
 function calcula($a,$b){
-	$r=null;
-	$r=$r. "Suma:".$a."+".$b."=".($a+$b).'</br>';
-	$r=$r."Resta:".$a."-".$b."=".($a-$b).'</br>';
-	$r=$r. "Multiplicar:".$a."*".$b."=".($a*$b).'</br>';
-	$r=$r. "Division:".$b."/".$a."=".($b/$a).'</br>';
-	return $r;
+	echo "Suma:".$a."+".$b."=".($a+$b).'</br>';
+	echo "Resta:".$a."-".$b."=".($a-$b).'</br>';
+	echo "Multiplicar:".$a."*".$b."=".($a*$b).'</br>';
+	echo "Division:".$b."/".$a."=".($b/$a).'</br>';
 }
-$r=calcula(11,24);
-echo $r;
-$r= calcula(24,31);
-echo $r;
+calcula(18,20);
+calcula(19,21);
 ?>
