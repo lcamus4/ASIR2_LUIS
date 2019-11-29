@@ -1,64 +1,24 @@
-<form>
-	Ángulo 1    
-	<input name="angulo1"/>
-	</br>
-	Ángulo 2    
-	<input name="angulo2"/>
-	</br>
-	Ángulo 3  
-	<input name="angulo3"/>
-	</br>
-	<button>Comprobar</button>
-	</br>
-	</br>
-</form>
-
 <?php
-if(isset($_GET['angulo1'],$_GET['angulo1'],$_GET['angulo1'])){
-	if(is_numeric($_GET['angulo1']) && is_numeric($_GET['angulo1']) && is_numeric($_GET['angulo1']) && ($_GET['angulo1'])>0 && ($_GET['angulo1'])>0 && ($_GET['angulo1'])>0){
-		echo 'Ángulo 1: '.$_GET['angulo1'].'</br>';
-		echo 'Ángulo 2: '.$_GET['angulo2'].'</br>';
-		echo 'Ángulo 3: '.$_GET['angulo3'].'</br>';
-		echo '</br>';
-}
-}
-?>
-
-<form>
-	<button href="http://localhost/asir2_alvaro/triangulos_c.php">Poner a 0 los valores.</button>
-	</br>
-	</br>
-</form>
-
-<?php
-if(isset($_GET['angulo1'], $_GET['angulo2'], $_GET['angulo3'])){
-	if(is_numeric($_GET['angulo1']) && is_numeric($_GET['angulo2']) && is_numeric($_GET['angulo3']) && ($_GET['angulo1'])>0 && ($_GET['angulo2'])>0 && ($_GET['angulo3'])>0){
-		function lados(){
-			if($_GET['angulo1']==$_GET['angulo2'] && $_GET['angulo1']==$_GET['angulo3']){
-				$r='equilátero';
-			}elseif($_GET['angulo1']==$_GET['angulo2'] || $_GET['angulo1']==$_GET['angulo3'] || $_GET['angulo2']==$_GET['angulo3']){
-				$r='isósceles';
-			}else
-				$r='escaleno';
+function angulos ($a,$b,$c) {
+		$r="Triangulo Acutangulo";
+			if ($a==45 or $b==45 or $c==45)
+				$r="Triangulo Rectangulo";
+			if ($a>45 or $b>45 or $c>45)
+				$r="Triangulo Obtusangulo";
 			return $r;
-		}
-		
-		
-		
-		function angulos(){
-			if($_GET['angulo1']==90 || $_GET['angulo2']==90 || $_GET['angulo3']==90){
-				$r='rectángulo';
-			}elseif($_GET['angulo1']>90 || $_GET['angulo2']>90 || $_GET['angulo3']>90){
-				$r='obtusángulo';
-			}else
-				$r='acutángulo';
-			return $r;
-			}
-			
-			echo 'Es un triángulo '.lados().' y '.angulos().'.';
-		
-	}else
-		echo  'Introduce valores numéricos, por favor.';
-}else
-	echo 'Introduce la medida de los lados del triángulo.';
+}
+function longitud ($d,$e,$f) {
+	$r="triangulo escaleno";
+	if ($d==$e || $e==$f)
+		$r="triangulo isosceles";
+	if ($e==$f and $d==$f)
+		$r="Triangulo equilatero";
+	return $r;
+}
+function C ($a,$b,$c,$d,$e,$f){
+	return angulos($a,$b,$c).' y '.longitud($d,$e,$f);
+}
+echo C(55,20,15,3,1,2)."<br>";
+echo C(30,45,15,2,2,4)."<br>";
+echo C(30,30,30,1,1,1)."<br>";
 ?>
